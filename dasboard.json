@@ -1,293 +1,453 @@
 {
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": {
-            "type": "grafana",
-            "uid": "-- Grafana --"
-          },
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "type": "dashboard"
-        }
-      ]
-    },
-    "editable": true,
-    "fiscalYearStartMonth": 0,
-    "graphTooltip": 0,
-    "id": 1,
-    "links": [],
-    "panels": [
+  "annotations": {
+    "list": [
       {
-        "collapsed": false,
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 0
-        },
-        "id": 3,
-        "panels": [],
-        "title": "RAM",
-        "type": "row"
-      },
-      {
+        "builtIn": 1,
         "datasource": {
-          "type": "prometheus",
-          "uid": "bdmdl47ii8we8a"
+          "type": "grafana",
+          "uid": "-- Grafana --"
         },
-        "description": "RAM disponível",
-        "fieldConfig": {
-          "defaults": {
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "transparent",
-                  "value": null
-                }
-              ]
-            },
-            "unit": "bytes"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 6,
-          "w": 5,
-          "x": 0,
-          "y": 1
-        },
-        "id": 5,
-        "options": {
-          "colorMode": "background",
-          "graphMode": "none",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
-        },
-        "pluginVersion": "10.4.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "bdmdl47ii8we8a"
-            },
-            "disableTextWrap": false,
-            "editorMode": "builder",
-            "expr": "windows_cs_physical_memory_bytes{instance=\"192.168.0.3:9182\"}",
-            "fullMetaSearch": false,
-            "includeNullMetadata": true,
-            "instant": false,
-            "legendFormat": "__auto",
-            "range": true,
-            "refId": "A",
-            "useBackend": false
-          }
-        ],
-        "title": "Ram Available",
-        "type": "stat"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "bdmdl47ii8we8a"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "continuous-GrYlRd"
-            },
-            "mappings": [],
-            "max": 16106127360,
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                }
-              ]
-            },
-            "unit": "bytes"
-          },
-          "overrides": [
-            {
-              "matcher": {
-                "id": "byName",
-                "options": "Memory Free"
-              },
-              "properties": [
-                {
-                  "id": "color",
-                  "value": {
-                    "mode": "continuous-RdYlGr"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "gridPos": {
-          "h": 6,
-          "w": 7,
-          "x": 5,
-          "y": 1
-        },
-        "id": 2,
-        "options": {
-          "displayMode": "lcd",
-          "maxVizHeight": 300,
-          "minVizHeight": 16,
-          "minVizWidth": 8,
-          "namePlacement": "auto",
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showUnfilled": true,
-          "sizing": "auto",
-          "valueMode": "color"
-        },
-        "pluginVersion": "10.4.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "bdmdl47ii8we8a"
-            },
-            "editorMode": "code",
-            "exemplar": false,
-            "expr": "windows_os_physical_memory_free_bytes",
-            "hide": false,
-            "instant": false,
-            "legendFormat": "Memory Free",
-            "range": true,
-            "refId": "A"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "bdmdl47ii8we8a"
-            },
-            "editorMode": "code",
-            "exemplar": false,
-            "expr": "windows_cs_physical_memory_bytes - windows_os_physical_memory_free_bytes",
-            "hide": false,
-            "instant": false,
-            "legendFormat": "Memory Used",
-            "range": true,
-            "refId": "B"
-          }
-        ],
-        "title": "RAM Used",
-        "type": "bargauge"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "bdmdl47ii8we8a"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "mappings": [],
-            "thresholds": {
-              "mode": "percentage",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "orange",
-                  "value": 70
-                },
-                {
-                  "color": "red",
-                  "value": 85
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 6,
-          "w": 4,
-          "x": 12,
-          "y": 1
-        },
-        "id": 4,
-        "options": {
-          "minVizHeight": 75,
-          "minVizWidth": 75,
-          "orientation": "auto",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showThresholdLabels": false,
-          "showThresholdMarkers": true,
-          "sizing": "auto"
-        },
-        "pluginVersion": "10.4.3",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "bdmdl47ii8we8a"
-            },
-            "editorMode": "code",
-            "exemplar": false,
-            "expr": "(100 * (1 - (windows_os_physical_memory_free_bytes / windows_cs_physical_memory_bytes)))",
-            "format": "heatmap",
-            "instant": false,
-            "interval": "",
-            "legendFormat": "__auto",
-            "range": true,
-            "refId": "A"
-          }
-        ],
-        "title": "RAM (%)",
-        "type": "gauge"
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
       }
-    ],
-    "refresh": "5s",
-    "schemaVersion": 39,
-    "tags": [],
-    "templating": {
-      "list": []
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "panels": [],
+      "title": "CPU",
+      "type": "row"
     },
-    "time": {
-      "from": "now-6h",
-      "to": "now"
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bdmdl47ii8we8a"
+      },
+      "description": "Esta consulta PromQL calcula a soma das métricas de tempo de CPU agrupadas por modo (por exemplo, usuário, sistema, inativo) em um intervalo de 5 minutos. Ele utiliza a função irate() para calcular a taxa de mudança por segundo nas métricas de tempo de CPU, fornecendo insights sobre a taxa na qual o tempo de CPU está sendo consumido em diferentes modos em sistemas Windows. Esse tipo de análise ajuda a compreender a distribuição do uso da CPU em diversas atividades, como processos do usuário, tarefas do sistema e tempo ocioso, facilitando a otimização do desempenho e decisões de alocação de recursos.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "super-light-blue",
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 75
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "text": {},
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdmdl47ii8we8a"
+          },
+          "editorMode": "code",
+          "expr": "sum by (mode) (irate(windows_cpu_time_total{job=\"windows\"}[5m]))",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Mode Time [5m]",
+      "type": "stat"
     },
-    "timepicker": {},
-    "timezone": "browser",
-    "title": "Windows",
-    "uid": "admdmyy9klzpcd",
-    "version": 8,
-    "weekStart": ""
-  }
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bdmdl47ii8we8a"
+      },
+      "description": "Esta consulta PromQL compara a taxa de mudança na utilização total da CPU com a taxa de mudança na métrica de processamento RTC (Real-Time Clock) em sistemas Windows. A utilização total da CPU é um indicador crucial da carga de trabalho do sistema, enquanto o processamento RTC pode ser um indicativo de eventos em tempo real ou de outras atividades críticas do sistema. Dividir essas duas métricas permite avaliar a eficiência do processamento em relação à carga de trabalho geral da CPU, fornecendo insights valiosos sobre o desempenho e a capacidade do sistema. Este tipo de análise pode ser útil para identificar gargalos de desempenho, otimizar recursos e garantir uma operação eficiente do ambiente Windows.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 9,
+      "options": {
+        "displayMode": "lcd",
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdmdl47ii8we8a"
+          },
+          "editorMode": "code",
+          "expr": "rate(windows_cpu_processor_utility_total{job=\"windows\"}[5m]) / rate(windows_cpu_processor_rtc_total{job=\"windows\"}[5m])",
+          "instant": false,
+          "legendFormat": "{{core}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Windows CPU Usage vs. RTC Processing Rate Comparison",
+      "type": "bargauge"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 3,
+      "panels": [],
+      "title": "RAM",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bdmdl47ii8we8a"
+      },
+      "description": "RAM disponível",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "transparent",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 0,
+        "y": 10
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdmdl47ii8we8a"
+          },
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "windows_cs_physical_memory_bytes{instance=\"192.168.0.3:9182\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Ram Available",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bdmdl47ii8we8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "max": 16106127360,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory Free"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "continuous-RdYlGr"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 7,
+        "x": 5,
+        "y": 10
+      },
+      "id": 2,
+      "options": {
+        "displayMode": "lcd",
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdmdl47ii8we8a"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "windows_os_physical_memory_free_bytes",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Memory Free",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdmdl47ii8we8a"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "windows_cs_physical_memory_bytes - windows_os_physical_memory_free_bytes",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "Memory Used",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "RAM Used",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bdmdl47ii8we8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 85
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 12,
+        "y": 10
+      },
+      "id": 4,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bdmdl47ii8we8a"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(100 * (1 - (windows_os_physical_memory_free_bytes / windows_cs_physical_memory_bytes)))",
+          "format": "heatmap",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "RAM (%)",
+      "type": "gauge"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2024-05-20T06:18:30.883Z",
+    "to": "2024-05-22T06:18:30.883Z"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Windows",
+  "uid": "admdmyy9klzpcd",
+  "version": 13,
+  "weekStart": ""
+}
